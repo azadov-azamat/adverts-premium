@@ -1,0 +1,52 @@
+{
+  "select-enum": "Please select for {{key}}:",
+  "properties": {
+    "title": "Search",
+    "add-listing": "Add your listing",
+    "type": "Property type",
+    "listing-type": "Transaction type",
+    "rent-type": "Rent type",
+    "options": "Options",
+    "rooms": "Rooms",
+    "rooms-details": "Rooms",
+    "floor": "Floor",
+    "build-type": "Build type",
+    "area-size": "Area size",
+    "floors": "Number of Floors",
+    "condition": "Condition",
+    "layout": "Layout",
+    "living-area-size": "Living area size",
+    "ceiling-height": "Ceiling height",
+    "construction-date": "Construction date",
+    "facilities": "Facilities",
+    "details": "Details",
+    "location": "Location",
+    "contacts": "Contacts",
+    "images": "Images",
+    "published": "Published date",
+    "generate": "Generate"
+  },
+  "districts": {
+    "mirobod": "Mirobod district",
+    "mirzo-ulugbek": "Mirzo-Ulugbek district",
+    "chilonzor": "Chilonzor district",
+    "shayhontohur": "Shayhontohur district",
+    "yunusobod": "Yunusobod district",
+    "yakkasaroy": "Yakkasaroy district",
+    "uchtepa": "Uchtepa district",
+    "yashnobod": "Yashnobod district",
+    "shayxontohur": "Shayxontohur district",
+    "olmazor": "Olmazor district",
+    "sergeli": "Sergeli district",
+    "bektemir": "Bektemir district",
+    "mirzo ulug'bek": "Mirzo-Ulugbek district",
+    "yangihayot": "Yangihayat district"
+  },
+
+  "rent-type": {
+    "daily": "Daily",
+    "monthly": "Monthly",
+    "sale": "Sale",
+    "rent": "Rent"
+  }
+}

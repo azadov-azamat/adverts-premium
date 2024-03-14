@@ -1,0 +1,53 @@
+{
+	"select-enum": "Пожалуйста, выберите для {{key}}:",
+	"properties": {
+		"title": "Поиск",
+		"add-listing": "Добавить объявление",
+		"type": "Тип",
+		"listing-type": "Тип сделки",
+		"rent-type": "Тип объекта",
+		"options": "Параметры",
+		"rooms": "Количество комнат",
+		"rooms-details": "Комнаты",
+		"floor": "Этаж",
+		"build-type": "Строения",
+		"area-size": "Площадь квартиры",
+		"floors": "Этажность",
+		"condition": "Состояние",
+		"layout": "Планировка",
+		"living-area-size": "Жилая площадь",
+		"ceiling-height": "Высота потолка",
+		"construction-date": "Год стройки",
+		"facilities": "Удобства",
+		"details": "Подробности",
+		"location": "Расположение",
+		"contacts": "Контакты",
+		"images": "Изображений",
+		"published": "Опубликовано",
+		"generate": "Генерировать",
+		"for-sale": "Продажа",
+		"for-rent": "Аренда"
+	},
+	"districts": {
+		"mirobod": "Мирабадский район",
+		"mirzo-ulugbek": "Мирзо-Улугбекский район",
+		"chilonzor": "Чиланзарский район",
+		"shayhontohur": "Шайхантахурский район",
+		"yunusobod": "Юнусабадский район",
+		"yakkasaroy": "Яккасарайский район",
+		"uchtepa": "Учтепинский район",
+		"yashnobod": "Яшнабадский район",
+		"shayxontohur": "Шайхонтохурский район",
+		"olmazor": "Алмазарский район",
+		"sergeli": "Сергелийский район",
+		"bektemir": "Бектемирский район",
+		"mirzo ulug'bek": "Мирзо-Улугбекский район",
+		"yangihayot": "Янгихаятский район"
+	},
+	"rent-type": {
+		"daily": "Посуточная",
+		"monthly": "Месячная",
+		"sale": "Продажа",
+		"rent": "Аренда"
+	}
+}
