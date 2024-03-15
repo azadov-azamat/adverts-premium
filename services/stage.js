@@ -1,53 +1,28 @@
 const {translate} = require("./translate");
-const {removeMarkup} = require("../utils/keyboards");
 const {Markup} = require("telegraf");
+const {OPTIONS} = require("../utils/constants");
 
-function askForKey(ctx) {
-    switch (ctx.session.currentState) {
-        case 'marketType':
-        case 'propertyType':
-        case 'currency':
-        case 'rentType':
-        case 'buildType':
-        case 'listingType':
-        case 'repair':
-        case 'roomsCount':
-            askForEnum(ctx);
-            break;
-        case 'hasSwimmingPool':
-        case 'hasFurnishing':
-        case 'hasBalcony':
-        case 'hasParking':
-        case 'hasSecurity':
-        case 'hasSurveillance':
-        case 'hasPlayground':
-        case 'hasSauna':
-        case 'hasSewage':
-        case 'hasElectricity':
-        case 'hasWater':
-        case 'hasGas':
-            askForBoolean(ctx);
-            break;
-        case 'latlng':
-            askForAddress(ctx)
-        default:
-            ctx.reply(translate('enter-text', {key: translate(`properties.${ctx.session.currentState}`)}), removeMarkup());
-            break;
-    }
-}
+let property = {}
 
-function askForEnum(ctx) {
-    let key = ctx.session.currentState
+function askForEnum(ctx, key) {
     let options;
 
-    if (key === 'marketType') {
-        options = ['secondary', 'primary'];
+    if (key === 'listingType') {
+        options = [
+            [translate('rent-type.sale'), translate('rent-type.rent')]
+        ];
+    } else if (key === 'rentType') {
+        options = [
+            [translate('rent-type.daily'), translate('rent-type.monthly')]
+        ];
     } else if (key === 'propertyType') {
         options = [
             [translate('property-type.house'), translate('property-type.apartment')],
             [translate('property-type.land'), translate('property-type.commercial')],
             [translate('property-type.cottage')]
         ];
+    } else if (key === 'marketType') {
+        options = ['secondary', 'primary'];
     } else if (key === 'buildType') {
         options = [
             [translate('build-type.wooden'), translate('build-type.block')],
@@ -69,19 +44,16 @@ function askForEnum(ctx) {
         ];
     } else if (key === 'currency') {
         options = ['USD', 'UZS'];
-    } else if (key === 'rentType') {
-        options = [[translate('rent-type.daily'), translate('rent-type.monthly')]];
-    } else if (key === 'listingType') {
-        options = [[translate('rent-type.sale'), translate('rent-type.rent')]];
     }
-    ctx.reply(translate('select-enum', {key: translate(`properties.${key}`)}), Markup.keyboard(options.map(option => option)).oneTime().resize());
+    ctx.reply(translate('select-enum', {key: translate(`properties.${key}`)}),
+        Markup.keyboard(options.map(option => option)).oneTime().resize());
 }
 
-function askForBoolean(ctx) {
-    let key = ctx.session.currentState
+function askForBoolean(ctx, key) {
+
     ctx.reply(`Sizda ${key} mavjudmi?`, Markup.inlineKeyboard([
-        Markup.button.callback('Ha', `set_${key}_true`),
-        Markup.button.callback('Yo\'q', `set_${key}_false`)
+        Markup.button.callback('Ha', '1'),
+        Markup.button.callback('Yo\'q', '0')
     ]));
 }
 
@@ -91,4 +63,28 @@ function askForAddress(ctx) {
     ]).oneTime().resize());
 }
 
-module.exports = {askForKey, askForEnum, askForBoolean, askForAddress}
+function sendSummary(ctx) {
+    let messageText = 'Siz kiritgan ma\'lumotlar:\n';
+    OPTIONS['keysProperty'].forEach(({key, type}) => {
+        let value = ctx.wizard.state[key];
+        console.log(value)
+        switch (type) {
+            case "boolean":
+                value = Number(value) ? "Ha" : "Yo'q"
+                break;
+            case 'location' :
+                value = `Latitude: ${value[0]}, Longitude: ${value[1]}`;
+                break;
+            default:
+                if (value === undefined) {
+                    value = 'Kiritilmagan';
+                }
+        }
+
+        messageText += `${key}: ${value}\n`;
+    });
+
+    ctx.reply(messageText);
+}
+
+module.exports = {sendSummary, askForEnum, askForBoolean, askForAddress, property}

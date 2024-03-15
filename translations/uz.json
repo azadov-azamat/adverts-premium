@@ -23,7 +23,7 @@
 		"build-type": "Qurilish materiali",
 		"floors": "Binoning qavatlari",
 		"condition": "Holati",
-		"living-area-size": "Yashash maydoni",
+		"livingArea": "Yashash maydoni",
 		"ceiling-height": "Shift balandligi",
 		"construction-date": "Qurilish yili",
 		"facilities": "Qulayliklar",
@@ -37,9 +37,10 @@
 		"ceilingHeight": "Shift balandligi",
 		"constructionDate": "Qurilish yili",
 		"repair": "Holati",
-		"totalFloors": "Xonalar soni",
+		"totalFloors": "Qavatlar soni",
 		"latlng": "properties.latlng",
-		"hasFurnishing": "properties.hasFurnishing"
+		"hasFurnishing": "properties.hasFurnishing",
+		"undefined": "properties.undefined"
 	},
 	"property-type": {
 		"apartment": "Kvartiralar",

@@ -7,9 +7,6 @@ const {
 
 const {translate} = require("../services/translate");
 const i18n = require("../services/i18n-config");
-const {findKeyByValue} = require("../services/helpers");
-const {askForKey} = require("../services/stage");
-const {OPTIONS} = require("./constants");
 
 module.exports = function (bot) {
 
@@ -21,44 +18,9 @@ module.exports = function (bot) {
     }, async (ctx) => {
         ctx.session.page = 'to-announce';
 
-        ctx.reply(askForKey(ctx))
+        return ctx.scene.enter('property')
 
     });
-
-    bot.hears(/.*/, (ctx) => {
-        const text = ctx.message.text
-        let currentState = ctx.session.currentState
-        let property = ctx.session.property
-        let currentIndex = OPTIONS['keysProperty'].indexOf(currentState);
-
-        if (currentState.startsWith('has')) {
-            return
-        }
-        const commandRent = translate({phrase: 'rent-type.rent', locale: ctx.session.language});
-
-        if (text === commandRent) {
-            OPTIONS['keysProperty'].splice(1, 0, 'rentType')
-        } else {
-            if (ctx.session.property['listingType'] !== 'rent')
-                if (OPTIONS['keysProperty'].find(item => item === 'rentType')) OPTIONS['keysProperty'].splice(OPTIONS['keysProperty'].indexOf('rentType'), 1)
-        }
-
-        ctx.session.property[currentState] = findKeyByValue(text);
-
-        console.log(property)
-        console.log(currentState)
-
-        if (currentIndex + 1 < OPTIONS['keysProperty'].length) {
-            console.log(currentIndex)
-            console.log(OPTIONS['keysProperty'][currentIndex + 1])
-            ctx.session.currentState = OPTIONS['keysProperty'][currentIndex + 1];
-            askForKey(ctx);
-        } else {
-            ctx.reply('Barcha ma\'lumotlar qabul qilindi. Raxmat!');
-            console.log(property);
-        }
-    });
-
 
     bot.hears((text, ctx) => {
 
@@ -105,4 +67,5 @@ module.exports = function (bot) {
             await ctx.reply(translate('select-setting'), settingsKeyboards());
         }
     });
+
 };

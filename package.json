@@ -8,10 +8,15 @@
   },
   "private": true,
   "dependencies": {
+    "axios": "^1.6.7",
+    "camelize": "^1.0.1",
     "dotenv": "^16.4.5",
     "i18n": "^0.15.1",
     "ioredis": "^5.3.2",
+    "jsonapi-serializer": "^3.6.9",
+    "lodash": "^4.17.21",
     "node-geocoder": "^4.3.0",
+    "sequelize": "^6.37.1",
     "telegraf": "^4.16.3"
   }
 }
