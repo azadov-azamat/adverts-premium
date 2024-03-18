@@ -46,7 +46,7 @@
 		"street": "Ko'cha"
 	},
 	"boolean-types": {
-		"title": "{{has}} bormi",
+		"title": "{{has}} bormi?",
 		"hasSwimmingPool": "Suzish maydonchasi",
 		"hasFurnishing": "Jihozlar",
 		"hasBalcony": "Balkon",
