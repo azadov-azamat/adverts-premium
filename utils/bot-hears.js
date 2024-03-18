@@ -1,12 +1,12 @@
 const {
     languageKeyboard,
     settingsKeyboards,
-    LANGUAGE,
-    mainKeyboard
+    LANGUAGE
 } = require('../utils/keyboards');
 
 const {translate} = require("../services/translate");
 const i18n = require("../services/i18n-config");
+const {mainMenuKeyboard} = require("./keyboards");
 
 module.exports = function (bot) {
 
@@ -19,6 +19,29 @@ module.exports = function (bot) {
         ctx.session.page = 'to-announce';
 
         return ctx.scene.enter('property')
+
+    });
+    bot.hears((text, ctx) => {
+
+        const command = translate({phrase: 'commands.checking-yes', locale: ctx.session.language});
+        return text === command;
+
+    }, async (ctx) => {
+        // ctx.session.page = 'che';
+
+        ctx.reply(translate('send-announce'), mainMenuKeyboard())
+
+    });
+
+    bot.hears((text, ctx) => {
+
+        const command = translate({phrase: 'commands.checking-no', locale: ctx.session.language});
+        return text === command;
+
+    }, async (ctx) => {
+        // ctx.session.page = 'che';
+
+        ctx.reply(translate('unsent-announce'), mainMenuKeyboard())
 
     });
 
@@ -61,7 +84,7 @@ module.exports = function (bot) {
 
         if (page === 'settings') {
             ctx.session.page = 'main';
-            await ctx.reply(translate('main-menu'), mainKeyboard());
+            await ctx.reply(translate('main-menu'), mainMenuKeyboard());
         } else if (page === 'language') {
             ctx.session.page = 'settings';
             await ctx.reply(translate('select-setting'), settingsKeyboards());

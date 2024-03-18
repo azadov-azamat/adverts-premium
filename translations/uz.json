@@ -1,10 +1,16 @@
 {
 	"select-enum": "{{key}} tanlang:",
 	"enter-text": "{{key}} uchun kiriting:",
+	"send-announce": "📪 So`rovingiz tekshirish uchun adminga jo`natildi!\n\nE'lon 24-48 soat ichida kanalda chiqariladi.",
+	"unsent-announce": "📪 So`rovingiz bekor qilindi!",
+	"year": "{{date}} - yil",
 	"commands": {
 		"to-announce": "E'lon berish",
+		"checking": "Ma'lumotlar to'g'ri berilganligini tekshiring!",
 		"language": "Til",
-		"go-back": "Orqaga"
+		"go-back": "Orqaga",
+		"checking-yes": "Ha",
+		"checking-no": "Yo'q"
 	},
 	"properties": {
 		"name": "Nom",
@@ -20,12 +26,11 @@
 		"type": "Yer mulk turi",
 		"options": "Sozlamalar",
 		"rooms-details": "Xonalar",
-		"build-type": "Qurilish materiali",
 		"floors": "Binoning qavatlari",
 		"condition": "Holati",
-		"livingArea": "Yashash maydoni",
-		"ceiling-height": "Shift balandligi",
-		"construction-date": "Qurilish yili",
+		"livingArea": "Yashash maydoni (м²)",
+		"ceilingHeight": "Shift balandligi (metr da)",
+		"constructionDate": "Qurilish yili",
 		"facilities": "Qulayliklar",
 		"details": "Batafsil",
 		"location": "Manzil",
@@ -34,28 +39,67 @@
 		"published": "Joylashtirildi",
 		"generate": "Generatsiya qilish",
 		"layout": "Planirovka",
-		"ceilingHeight": "Shift balandligi",
-		"constructionDate": "Qurilish yili",
 		"repair": "Holati",
 		"totalFloors": "Qavatlar soni",
-		"latlng": "properties.latlng",
-		"hasFurnishing": "properties.hasFurnishing",
-		"undefined": "properties.undefined"
+		"latlng": "Koordinata",
+		"district": "Tuman",
+		"street": "Ko'cha"
 	},
-	"property-type": {
+	"boolean-types": {
+		"title": "{{has}} bormi",
+		"hasSwimmingPool": "Suzish maydonchasi",
+		"hasFurnishing": "Jihozlar",
+		"hasBalcony": "Balkon",
+		"hasParking": "Avto turargoh",
+		"hasSecurity": "Qo'riqlash xizmati",
+		"hasSurveillance": "Kuzatuv kamerasi",
+		"hasPlayground": "O'yin maydonchasi",
+		"hasSauna": "Sauna",
+		"hasSewage": "Kanalizatsiya tizimi",
+		"hasElectricity": "Elektor ta'minoti",
+		"hasWater": "Suv ta'minoti",
+		"hasGas": "Gaz ta'minoti"
+	},
+	"input-types": {
+		"title": "{{key}} ni kiriting:"
+	},
+	"enum-types": {
+		"1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"6": "6",
+		"7": "7",
+		"8": "8",
+		"9": "9",
+		"10": "10",
+
 		"apartment": "Kvartiralar",
 		"house": "Hususiy uy",
 		"commercial": "Tijorat binosi",
 		"cottage": "Kottedj",
-		"land": "Yer uchastkasi"
-	},
-	"build-type": {
-		"type": "Qurilish turi",
+		"land": "Yer uchastkasi",
+		"build-type": "Qurilish turi",
 		"wooden": "Yog'och",
 		"block": "Blokli",
 		"monolithic": "Monolitli",
 		"panel": "Panelli",
-		"brick": "G'ishtli"
+		"brick": "G'ishtli",
+		"repair-type": "Ta'mirli",
+		"perfect": "A'lo",
+		"bad": "Yomon",
+		"good": "Yaxshi",
+		"authors_project": "Mualliflik loyihasi",
+		"renovation": "Yevrota'mir",
+		"average": "O'rtacha",
+		"requires_repair": "Ta'mir talab",
+		"rough_finish": "Qora suvoq",
+		"prefinishing": "Tozalashdan avvalgi pardoz",
+		"daily": "Kunlik",
+		"monthly": "Oylik",
+		"sale": "Sotuvda",
+		"rent": "Arenda"
 	},
 	"districts": {
 		"mirobod": "Mirobod tumani",
@@ -73,26 +117,7 @@
 		"mirzo ulug'bek": "Mirzo-Ulugbek tumani",
 		"yangihayot": "Yangihayot tumani"
 	},
-	"rent-type": {
-		"daily": "Kunlik",
-		"monthly": "Oylik",
-		"sale": "Sotuvda",
-		"rent": "Arenda"
-	},
-	"repair-type": {
-		"perfect": "A'lo",
-		"bad": "Yomon",
-		"good": "Yaxshi",
-		"type": "Ta'miri",
-		"authors_project": "Mualliflik loyihasi",
-		"renovation": "Yevrota'mir",
-		"average": "O'rtacha",
-		"requires_repair": "Ta'mir talab",
-		"rough_finish": "Qora suvoq",
-		"prefinishing": "Tozalashdan avvalgi pardoz"
-	},
 	"welcome-and-select-menu": "welcome-and-select-menu",
 	"select-language": "Kerakli tilni tanlang!",
-	"selected-language": "Siz {{lang}} tanladingiz",
-	"properties.": "properties."
+	"selected-language": "Siz {{lang}} tanladingiz"
 }

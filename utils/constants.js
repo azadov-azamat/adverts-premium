@@ -1,4 +1,4 @@
-const OPTIONS = {
+let OPTIONS = {
     district: [
         { label: 'all', value: null, single: true },
         {
@@ -76,6 +76,7 @@ const OPTIONS = {
     ],
     keysProperty: [
         { key: 'listingType', type: 'enum' },
+        { key: 'rentType', type: 'enum' },
         { key: 'propertyType', type: 'enum' },
         { key: 'latlng', type: 'location' },
         { key: 'roomsCount', type: 'enum' },
@@ -86,7 +87,7 @@ const OPTIONS = {
         { key: 'ceilingHeight', type: 'input' },
         { key: 'buildType', type: 'enum' },
         { key: 'repair', type: 'enum' },
-        { key: 'constructionDate', type: 'input' },
+        { key: 'constructionDate', type: 'inline' },
         { key: 'hasSwimmingPool', type: 'boolean' },
         { key: 'hasFurnishing', type: 'boolean' },
         { key: 'hasBalcony', type: 'boolean' },
